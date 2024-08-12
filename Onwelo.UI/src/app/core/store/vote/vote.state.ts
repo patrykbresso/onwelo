@@ -93,9 +93,9 @@ export class VoteState {
   addVoter(ctx: StateContext<VoteStateModel>,  action: VoteStateActions.AddVoter): Observable<any> {
     return this._voterHttpService.addVoter({ fullname: action.payload.fullname })
       .pipe(
-        tap((candidateId: string) => {
+        tap((voterId: string) => {
           const newVoter: Voter = {
-            id: candidateId,
+            id: voterId,
             fullname: action.payload.fullname,
             hasVoted: false
           }

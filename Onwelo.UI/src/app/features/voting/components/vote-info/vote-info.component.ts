@@ -40,6 +40,10 @@ export class VoteInfoComponent implements OnInit {
     } 
   ] as TableColumn[]
 
+  private readonly _addVoterTitle = "Add Voter";
+  private readonly _addCandidateTitle = "Add Candidate";
+  private readonly _dialogWidthInPx = "500px";
+
   constructor(
     private readonly _store: Store,
     private readonly dialog: MatDialog
@@ -51,7 +55,7 @@ export class VoteInfoComponent implements OnInit {
   }
 
   onAddVoter(): void {
-    this.openAddParticipantDialog("Add Voter")
+    this.openAddParticipantDialog(this._addVoterTitle)
       .pipe(
         filter((name) => name != null)
       )
@@ -61,7 +65,7 @@ export class VoteInfoComponent implements OnInit {
   }
 
   onAddCandidate(): void {
-    this.openAddParticipantDialog("Add Candidate")
+    this.openAddParticipantDialog(this._addCandidateTitle)
       .pipe(
         filter((name) => name != null)
       )
@@ -72,7 +76,7 @@ export class VoteInfoComponent implements OnInit {
 
   private openAddParticipantDialog(title: string): Observable<any> {
     const dialogRef = this.dialog.open(UiAddParticipantComponent, {
-      width: '500px',
+      width: this._dialogWidthInPx,
       data: { title }
     });
 
