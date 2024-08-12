@@ -1,0 +1,13 @@
+app-vote-info {
+    .vote-info-container {
+
+        .tables-container{
+            display: flex;
+            gap: 50px;
+
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+}

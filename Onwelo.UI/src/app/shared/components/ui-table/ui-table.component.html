@@ -1,0 +1,53 @@
+<div class="ui-table-container">
+    <table mat-table
+           [dataSource]="dataSource()">
+        <ng-container matColumnDef="main-header">
+            <th mat-header-cell
+                *matHeaderCellDef
+                [attr.colspan]="columns().length">
+                <div class="header-container">
+                    {{ title() }}
+
+                    <button mat-fab
+                            (click)="onAddParticipantButtonClick()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </th>
+        </ng-container>
+
+        @for (column of columns(); track column.name) {
+        <ng-container [matColumnDef]="column.name">
+            <th mat-header-cell
+                *matHeaderCellDef>
+                {{ column.title }}
+            </th>
+
+            <td mat-cell
+                *matCellDef="let element">
+
+                @if (isBoolean(element[column.name])) {
+                {{ element[column.name] ? 'V' : 'X' }}
+                }
+                @else {
+                {{ element[column.name] }}
+                }
+            </td>
+        </ng-container>
+        }
+
+
+        <tr mat-header-row
+            *matHeaderRowDef="['main-header']"></tr>
+        <tr mat-header-row
+            *matHeaderRowDef="columnHeaders()"></tr>
+        <tr mat-row
+            *matRowDef="let row; columns: columnHeaders();"></tr>
+    </table>
+
+    @if(dataSource().length === 0) {
+        <span class="no-results">
+            Brak wyników
+        </span>
+    }
+</div>

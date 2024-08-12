@@ -1,0 +1,21 @@
+<div class="take-vote-container">
+    <h1>
+        Vote!
+    </h1>
+
+    <div class="vote-form-container">
+        <app-ui-dropdown-input label="I am"
+                               [control]="votingForm().controls.voterId"
+                               [options]="voterOptions()" />
+
+        <app-ui-dropdown-input label="I vote for"
+                               [control]="votingForm().controls.candidateId"
+                               [options]="candidateOptions()" />
+
+        <button mat-button
+                [disabled]="votingForm() == null || votingForm().invalid"
+                (click)="onVoteButtonClick()">
+                Submit!
+        </button>
+    </div>
+</div>

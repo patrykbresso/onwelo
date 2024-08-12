@@ -1,0 +1,6 @@
+@Onwelo.API_HostAddress = http://localhost:5215
+
+GET {{Onwelo.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

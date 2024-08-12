@@ -1,0 +1,13 @@
+app-ui-table {
+    .ui-table-container {
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .no-results {
+            display: block;
+            padding: 15px;
+        }
+    }
+}

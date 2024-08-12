@@ -1,0 +1,10 @@
+app-take-vote {
+    .take-vote-container {
+        .vote-form-container {
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+    }
+}

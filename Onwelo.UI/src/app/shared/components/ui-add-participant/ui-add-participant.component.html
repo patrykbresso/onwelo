@@ -1,0 +1,29 @@
+<div class="ui-add-participant-container">
+    <h1>
+        {{ label() }}
+    </h1>
+
+    <mat-form-field appearance="outline">
+        <mat-label>
+            Name
+        </mat-label>
+
+        <input matInput
+               [formControl]="nameControl()"
+               type="text" />
+
+        @if(nameControl().hasError('required')) {
+        <mat-error>
+            This field is required
+        </mat-error>
+        }
+    </mat-form-field>
+
+    <button mat-flat-button
+            [disabled]="nameControl() == null || nameControl().invalid"
+            (click)="onAddButtonClick()">
+        <div>
+            Add!
+        </div>
+    </button>
+</div>

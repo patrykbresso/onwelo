@@ -1,0 +1,17 @@
+<div class="vote-info-container">
+    <h1>
+        Voting App
+    </h1>
+
+    <div class="tables-container">
+        <app-ui-table title="Voters"
+                      [columns]="votersColumns"
+                      [dataSource]="voters()"
+                      (addParticipantClick)="onAddVoter()" />
+
+        <app-ui-table title="Candidates"
+                      [columns]="candidatesColumns"
+                      [dataSource]="candidates()"
+                      (addParticipantClick)="onAddCandidate()" />
+    </div>
+</div>

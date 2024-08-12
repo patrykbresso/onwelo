@@ -1,0 +1,14 @@
+app-voting {
+    .voting-container {
+        width: 100%;
+
+        .vote-info, .take-vote {
+            display: block;
+            margin: 10px 50px;
+        }
+
+        .hr-container {
+            margin: 50px;
+        }
+    }
+}
