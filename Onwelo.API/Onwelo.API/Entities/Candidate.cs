@@ -2,6 +2,12 @@
 {
     public class Candidate
     {
+        //There are two ways in which we can handle counting number of votes for particular Candidate,
+        //first one is just checking number of relationships between Candidate and Voter (its implemented this way)
+        //second one is just to create another column in Candidate with sum of votes
+        //second solution is more suitable if we assume that the database will have a lot of records
+        //second solution unfortunately can lead to inconsistency in data
+        //in case of small datasets first approach should be ok
         public Candidate()
         {
         }
