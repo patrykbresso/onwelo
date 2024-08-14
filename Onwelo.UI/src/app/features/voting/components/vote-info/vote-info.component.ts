@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { select, Store } from '@ngxs/store';
 import { VoteStateActions } from '../../../../core/store/vote/vote-state.actions';
 import { VoteState } from '../../../../core/store/vote/vote.state';
@@ -14,7 +14,7 @@ import { filter, Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class VoteInfoComponent {
+export class VoteInfoComponent implements OnInit {
   voters = select(VoteState.voters);
   candidates = select(VoteState.candidates);
 
@@ -48,6 +48,11 @@ export class VoteInfoComponent {
     private readonly _store: Store,
     private readonly dialog: MatDialog
   ) { }
+
+  ngOnInit(): void {
+      this._store.dispatch(new VoteStateActions.GetVoters());
+      this._store.dispatch(new VoteStateActions.GetCandidates());
+  }
 
   onAddVoter(): void {
     this.openAddParticipantDialog(this._addVoterTitle)

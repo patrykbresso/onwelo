@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { VoteStateActions } from '../../core/store/vote/vote-state.actions';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-voting',
@@ -9,10 +7,5 @@ import { VoteStateActions } from '../../core/store/vote/vote-state.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class VotingComponent implements OnInit {
-  constructor(private readonly _store: Store) {}
-  ngOnInit(): void {
-    this._store.dispatch(new VoteStateActions.GetVoters());
-    this._store.dispatch(new VoteStateActions.GetCandidates());
-  }
+export class VotingComponent {
 }
